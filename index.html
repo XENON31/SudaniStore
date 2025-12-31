@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل تطبيق Sudan Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            background: linear-gradient(45deg, #FFC107, #FF9800);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: black;
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #FFC107;
+            text-shadow: 0 2px 5px rgba(255, 193, 7, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 193, 7, 0.1);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: #FFC107;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            color: #FFC107;
+            margin-bottom: 10px;
+        }
+        
+        .download-section {
+            margin: 50px 0;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #FFC107, #FF9800);
+            color: black;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+            margin: 20px 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.6);
+        }
+        
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .download-btn i {
+            margin-left: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .file-info {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        
+        .instructions {
+            background: rgba(255, 193, 7, 0.1);
+            border-right: 4px solid #FFC107;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: right;
+        }
+        
+        .instructions h3 {
+            color: #FFC107;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            padding-right: 20px;
+            line-height: 2;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .contact {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact a {
+            color: #FFC107;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact a:hover {
+            background: rgba(255, 193, 7, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .whatsapp-btn {
+            background: rgba(37, 211, 102, 0.2) !important;
+            color: #25D366 !important;
+        }
+        
+        .whatsapp-btn:hover {
+            background: rgba(37, 211, 102, 0.3) !important;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                width: 120px;
+                height: 120px;
+                font-size: 30px;
+            }
+            
+            .download-btn {
+                font-size: 1.2rem;
+                padding: 18px 40px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+                font-size: 25px;
+            }
+            
+            .download-btn {
+                width: 100%;
+                padding: 15px 30px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+          <img src="1.png" height="80px">
+        </div>
+        
+        <h1>تطبيق Sudan Store</h1>
+        <p class="subtitle">
+            التسوق السوداني بين يديك! تطبيق متكامل لتصفح وشراء المنتجات السودانية الأصلية
+            <br>حمله الآن واستمتع بتجربة تسوق فريدة وسهلة
+        </p>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3>تحميل سريع</h3>
+                <p>فوري التحميل والبدء دون تعقيدات</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>آمن ومجاني</h3>
+                <p>تطبيق آمن 100% وخالي من الفيروسات</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>تسوق سهل</h3>
+                <p>واجهة بسيطة لتجربة تسوق ممتعة</p>
+            </div>
+        </div>
+        
+        <div class="download-section">
+            <a href="SudanStore.apk" class="download-btn" download="SudanStore.apk">
+                <i class="fas fa-download"></i>
+                تحميل التطبيق الآن
+            </a>
+            <p class="file-info">
+                الحجم: ~15 ميجابايت | الإصدار: 1.0 | التوافق: Android 5.0+
+            </p>
+        </div>
+        
+        <div class="instructions">
+            <h3>طريقة التثبيت:</h3>
+            <ol>
+                <li>انقر على زر "تحميل التطبيق الآن" أعلاه</li>
+                <li>انتظر حتى يكتمل التحميل</li>
+                <li>افتح ملف APK الذي تم تحميله</li>
+                <li>إذا ظهر تحذير "مصادر غير معروفة"، فعّل الإذن من الإعدادات</li>
+                <li>اتبع خطوات التثبيت وانتظر حتى يكتمل</li>
+                <li>افتح التطبيق واستمتع بالتسوق!</li>
+            </ol>
+        </div>
+        
+        <div class="contact">
+            <h3>للحصول على مساعدة:</h3>
+            <p style="margin: 20px 0; color: #ccc;">
+                إذا واجهت أي مشكلة في التحميل أو التثبيت، تواصل معنا
+            </p>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
+                <a href="https://wa.me/249113570426" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    واتساب للدعم
+                </a>
+                <a href="https://sudanistore.gt.tc" target="_blank">
+                    <i class="fas fa-globe"></i>
+                    زيارة الموقع
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // كود جافاسكريبت لإضافة تأثيرات تفاعلية
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadBtn = document.querySelector('.download-btn');
+            const logo = document.querySelector('.logo');
+            
+            // تأثير عند التحميل
+            setTimeout(() => {
+                logo.style.transform = 'rotate(360deg)';
+                logo.style.transition = 'transform 1s ease';
+            }, 500);
+            
+            // إضافة تأثير عند المرور على زر التحميل
+            downloadBtn.addEventListener('mouseover', function() {
+                this.style.background = 'linear-gradient(45deg, #FF9800, #FFC107)';
+            });
+            
+            downloadBtn.addEventListener('mouseout', function() {
+                this.style.background = 'linear-gradient(45deg, #FFC107, #FF9800)';
+            });
+            
+            // عند النقر على زر التحميل
+            downloadBtn.addEventListener('click', function(e) {
+                // يمكنك إضافة أي كود إضافي هنا
+                console.log('بدأ تحميل التطبيق...');
+                
+                // إضافة تأثير بسيط
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحميل...';
+                this.style.pointerEvents = 'none';
+                
+                // بعد 3 ثوانٍ يعود الزر لشكله الطبيعي (محاكاة للتحميل)
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-download"></i> تحميل التطبيق الآن';
+                    this.style.pointerEvents = 'auto';
+                    
+                    // عرض رسالة نجاح
+                    alert('شكراً! تم بدء تحميل التطبيق. إذا لم يبدأ التحميل تلقائياً، تحقق من الإشعارات.');
+                }, 3000);
+            });
+            
+            // تأثيرات للعناصر عند التمرير
+            const features = document.querySelectorAll('.feature');
+            features.forEach((feature, index) => {
+                feature.style.opacity = '0';
+                feature.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    feature.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    feature.style.opacity = '1';
+                    feature.style.transform = 'translateY(0)';
+                }, 300 + (index * 200));
+            });
+        });
+    </script>
+</body>
+</html>
